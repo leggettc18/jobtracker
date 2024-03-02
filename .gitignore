@@ -1,0 +1,6 @@
+*_templ.txt
+*_templ.go*
+.envrc
+.env
+bin
+tmp

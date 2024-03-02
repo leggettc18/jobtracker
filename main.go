@@ -1,15 +1,20 @@
 package main
 
-import "log"
+import (
+    "log"
+
+    "github.com/leggettc18/job-tracker/store"
+)
 
 func main () {
-    storage := NewPostgresStorage("postgres://jobtracker:jobtracker@localhost/jobtracker?sslmode=verify-full")
+    connStr := "postgres://" + Envs.DBUser + ":" + Envs.DBPassword + "@" + Envs.DBAddress + "/" + Envs.DBName + "?sslmode=disable"
+    storage := store.NewPostgresStorage(connStr)
 
     db, err := storage.Init()
     if err != nil {
         log.Fatal(err)
     }
-    store := NewStore(db)
-    server := NewServer(":3000", store)
+    store := store.NewStore(db)
+    server := NewServer(":" + Envs.Port, store)
     server.Serve()
 }

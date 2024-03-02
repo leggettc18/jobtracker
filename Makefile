@@ -6,3 +6,6 @@ build:
 
 test:
 	@go test -v ./...
+	
+templ:
+	@templ generate -watch -proxy=http://localhost:8080

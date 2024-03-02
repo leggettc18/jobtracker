@@ -22,7 +22,7 @@ func initConfig() Config {
         DBUser: getEnv("JOBTRACKER_DB_USER", "jobtracker"),
         DBPassword: getEnv("JOBTRACKER_DB_PASSWORD", "jobtracker"),
         DBAddress: fmt.Sprintf("%s:%s", getEnv("JOBTRACKER_DB_HOST", "127.0.0.1"), getEnv("JOBTRACKER_DB_PORT", "5432")),
-        DBName: getEnv("JOBTRACKER_DB_NAME", "jobtracker"),
+        DBName: getEnv("JOBTRACKER_DB_NAME", "jobtrackerdb"),
         JWTSecret: getEnv("JOBTRACKER_SECRET", "randomsecretkey"),
     }
 }
