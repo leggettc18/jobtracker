@@ -25,6 +25,9 @@ func (server *Server) Serve() {
     //register services
     router.HandleFunc("/", handler.HandleHome).Methods("GET")
 
+    // serve files in public
+    router.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
+
     log.Printf("Starting server at %s\n", server.addr)
     log.Fatal(http.ListenAndServe(server.addr, router))
 }
