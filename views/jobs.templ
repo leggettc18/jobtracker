@@ -1,0 +1,12 @@
+package views
+
+import "github.com/leggettc18/job-tracker/types"
+import "github.com/leggettc18/job-tracker/components"
+
+templ Jobs(jobs []types.Job, isAddingJob bool) {
+@Page(true) {
+    <div>
+        @components.JobsList(jobs)
+    </div>
+}
+}

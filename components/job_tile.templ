@@ -1,0 +1,12 @@
+package components
+
+import "github.com/leggettc18/job-tracker/types"
+import "fmt"
+
+templ JobTile(job *types.Job) {
+    <li
+        id={ fmt.Sprintf("job-%d", job.ID) }
+    >
+        <span>{job.Position}: {job.Company}</span>
+    </li>
+}

@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS jobs (
+    id SERIAL,
+    position VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    listing VARCHAR(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status VARCHAR(255) NOT NULL DEFAULT 'Inbox',
+    InterviewDate TIMESTAMP,
+    AcceptedDate TIMESTAMP,
+
+    PRIMARY KEY (id)
+);

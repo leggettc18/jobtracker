@@ -20,10 +20,12 @@ func NewServer(addr string, store store.Store) *Server {
 
 func (server *Server) Serve() {
     router := mux.NewRouter()
-    handler := handlers.New(&server.store)
+    handler := handlers.New(server.store)
 
     //register services
     router.HandleFunc("/", handler.HandleHome).Methods("GET")
+    jobsSvc := NewJobsService(handler)
+    jobsSvc.RegisterRoutes(router)
 
     // serve files in public
     router.PathPrefix("/public/").Handler(http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))

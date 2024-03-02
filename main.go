@@ -7,14 +7,14 @@ import (
 )
 
 func main () {
-    connStr := "postgres://" + Envs.DBUser + ":" + Envs.DBPassword + "@" + Envs.DBAddress + "/" + Envs.DBName + "?sslmode=disable"
+    connStr := "postgres://" + store.Envs.DBUser + ":" + store.Envs.DBPassword + "@" + store.Envs.DBAddress + "/" + store.Envs.DBName + "?sslmode=disable"
     storage := store.NewPostgresStorage(connStr)
 
     db, err := storage.Init()
     if err != nil {
         log.Fatal(err)
     }
-    store := store.NewStore(db)
-    server := NewServer(":" + Envs.Port, store)
+    store_instance := store.NewStore(db)
+    server := NewServer(":" + store.Envs.Port, store_instance)
     server.Serve()
 }

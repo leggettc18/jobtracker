@@ -1,10 +1,14 @@
 package store
 
-import "database/sql"
+import (
+	"database/sql"
+
+	"github.com/leggettc18/job-tracker/types"
+)
 
 type Store interface {
-    // Users
-    CreateUser() error
+    // Jobs
+    GetJobs() ([]types.Job, error)
 }
 
 type Storage struct {

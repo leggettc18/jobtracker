@@ -1,0 +1,11 @@
+package components
+
+import "github.com/leggettc18/job-tracker/types"
+
+templ JobsList(jobs []types.Job) {
+    <ul id="job-list">
+        for _, job := range jobs {
+            @JobTile(&job)
+        }
+    </ul>
+}
