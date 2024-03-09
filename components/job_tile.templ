@@ -7,6 +7,16 @@ templ JobTile(job *types.Job) {
     <li
         id={ fmt.Sprintf("job-%d", job.ID) }
     >
-        <span>{job.Position}: {job.Company}</span>
+        <div class="p-4 rounded-xl shadow-lg border-zinc-100 border">
+            <div>
+                {job.Company}
+            </div>
+            <div>
+                {job.Position}
+            </div>
+            <div>
+                <a class="text-blue-500 hover:underline visited:text-purple-500" href={ templ.URL(job.Listing) }>{job.Listing}</a>
+            </div>
+        </div>
     </li>
 }

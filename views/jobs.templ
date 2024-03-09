@@ -5,7 +5,7 @@ import "github.com/leggettc18/job-tracker/components"
 
 templ Jobs(jobs []types.Job, isAddingJob bool) {
 @Page(true) {
-    <div>
+    <div class="flex">
         @components.JobsList(jobs)
     </div>
 }

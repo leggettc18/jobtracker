@@ -14,6 +14,6 @@ require (
 )
 
 require (
-	github.com/a-h/templ v0.2.590 // indirect
+	github.com/a-h/templ v0.2.598 // indirect
 	github.com/golang-migrate/migrate/v4 v4.17.0
 )
