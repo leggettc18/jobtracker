@@ -8,8 +8,15 @@ templ Page(nav bool) {
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="stylesheet" href="public/styles.css" />
+            <script src="public/vendor/htmx.min.js"></script>
         </head>
         <body>
+            if nav {
+                <nav class="flex w-full bg-blue-800 text-zinc-100 text-xl p-4">
+                    <a href="/" class="ml-6">Home</a>
+                    <a href="/jobs" class="ml-6">Jobs</a>
+                </nav>
+            }
             { children... }
         </body>
     </html>
